@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Message for the Girl who I Love Completely and more than Anything</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: #c7a77d; /* beige/brown like the pic */
+        font-family: 'Courier New', monospace;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .container {
+        text-align: center;
+    }
+
+    .note {
+        margin-bottom: 15px;
+        font-size: 14px;
+        color: #3e2f1c;
+    }
+
+    button {
+        padding: 12px 20px;
+        border: none;
+        border-radius: 8px;
+        background: #3e2f1c;
+        color: #fff;
+        font-size: 14px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #5a4226;
+    }
+
+    .card {
+        display: none;
+        margin-top: 20px;
+        background: #f5f0e6;
+        padding: 20px;
+        border-radius: 10px;
+        width: 320px;
+        text-align: left;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    #text {
+        white-space: pre-wrap;
+        line-height: 1.6;
+        font-size: 14px;
+        color: #2c2c2c;
+    }
+
+    .cursor {
+        display: inline-block;
+        width: 8px;
+        background: #2c2c2c;
+        margin-left: 3px;
+        animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+        0%, 50%, 100% { opacity: 1; }
+        25%, 75% { opacity: 0; }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="note">click this if you allow me to make things right</div>
+    <button onclick="startMessage()">Click me</button>
+
+    <div class="card" id="card">
+        <div id="text"></div><span class="cursor"></span>
+    </div>
+</div>
+
+<script>
+const message = `I know I don’t really have the right to ask for anything from you anymore, but I need to say this.
+
+I’m truly sorry—for the way I loved you before. I’m sorry if I overwhelmed you, if I made you feel pressured, if I kept trying to hold on too tightly when you needed space. I see now how I overdid things—overexplaining, over-apologizing, trying so hard to prove I was enough—that I ended up making things heavier instead of safer for you. I regret that deeply.
+
+The truth is, I was scared of losing you. And instead of loving you in a calm and steady way, I tried to earn you. I didn’t realize I was already losing myself in the process, and maybe even pushing you further away. I’m really sorry for that.
+
+But I’ve been reflecting a lot. I’ve been trying to understand my mistakes, not just for you, but for myself too. I don’t want to love like that anymore. I want to do better. I want to be better—someone who can love you without pressure, without making you feel like you have to carry anything heavy.
+
+And even after everything… I still want you. It’s still you. That hasn’t changed.
+
+I miss you in ways I can’t explain. And I hate that things ended like this, knowing I could’ve done better.
+
+I’m not here to force you or rush you. I just want to ask, from a sincere place—if there’s still even a small part of you that’s open to it, can we try again?
+
+I want to make things right this time. Not perfectly, but honestly. Slowly. Genuinely.
+
+And if you’re not ready, or if you don’t feel the same anymore, I’ll respect that. I just didn’t want to lose you without at least trying to fix what I know I broke.
+
+I’m really sorry. And I still choose you.
+
+I also understand that you don’t want to see me right now, and I respect that. I won’t force any conversation or put you in an uncomfortable situation. I just wanted to leave this with you so you can read it whenever you feel ready—no pressure, no expectations. Take all the time you need.`;
+
+let i = 0;
+const speed = 20;
+
+function typeWriter() {
+    if (i < message.length) {
+        document.getElementById("text").innerHTML += message.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+    }
+}
+
+function startMessage() {
+    document.getElementById("card").style.display = "block";
+    document.querySelector("button").style.display = "none";
+    document.querySelector(".note").style.display = "none";
+    typeWriter();
+}
+</script>
+
+</body>
+</html>
